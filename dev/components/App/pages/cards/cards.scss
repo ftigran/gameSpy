@@ -30,12 +30,16 @@ body {
                 position: relative;
                 transform-style: preserve-3d;
                 box-sizing: border-box;
+                transform: rotate(
+                    345deg
+                    );
                 &.flipped {
                     .front {
-                        transform: rotateY(180deg);
+                        transform: rotateX(180deg);
+                        color: transparent;
                     }
                     .back {
-                        transform: rotateY(0deg);
+                        transform: rotateX(0deg);
                     }
                 }
                 .front,
@@ -51,17 +55,20 @@ body {
                     border-radius: 10px;
                     backface-visibility: hidden;
                     transform-style: preserve-3d;
-                    transition: -webkit-transform ease 300ms;
-                    transition: transform ease 300ms;
+                    transition: -webkit-transform ease 500ms;
+                    transition: transform ease 500ms;
                 }
                 .front {
                     z-index: 2;
-                    transform: rotateY(0deg);
+                    transform: rotateX(0deg) scale(1.5);
+                    box-shadow: 20px 20px 30px #5f4d63;
+
                     /* front tile styles go here! */
                 }
                 .back {
                     background: $new-white;
-                    transform: rotateY(-180deg);
+                    transform: rotateX(-180deg) scale(1.5);
+
                     padding: 20px;
                     font-size: 20px;
                     /* back tile styles go here! */

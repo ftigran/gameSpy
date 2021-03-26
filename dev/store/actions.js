@@ -2,6 +2,7 @@ export const SET_HUMANS='SET_HUMANS'
 export const SET_SPYS='SET_SPYS'
 export const SET_SPY_ARRAY='SET_SPY_ARRAY'
 export const SET_LOCATION='SET_LOCATION'
+export const SET_CARD_ID='SET_CARD_ID'
 
 
 export const setHumans = (bool)=>{
@@ -28,9 +29,9 @@ export const setLocation = (bool)=>{
       payload: bool
 }
 }
-export const qf = (bool)=>{
+export const setCardID = (bool)=>{
   return {
-      type: q,
+      type: SET_CARD_ID,
       payload: bool
 }
 }
