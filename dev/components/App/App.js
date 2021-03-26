@@ -61,10 +61,10 @@ const Routes= ()=>{
                                 exact
                                 /> */}
                             {/* {isLogged?<Route path={"/cabinet"} render={() => <Cabinet/>}/>:<Route path={"/reg"} render={() => <Reg/>}/>} */}
-                            <Route path={"/winners"} render={() => <Winners/>}/>
+                            <Route path={"/cards"} render={() => <Cards/>}/>
                             <Route key='index' location={location} path={"/q"} render={() => 
                                 <Settings/>} exact/>
-                            <Route path="*" render={() => <><Settings/><Cards/></>} />
+                            <Route path="*" render={() =><Settings/>}/>
                         </Switch>
     )
 }

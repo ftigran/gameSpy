@@ -9,7 +9,7 @@ const initialState = {
   humans:10,
   spys: 1,
   spyArray:[],
-  location:""
+  location:"1"
 }
   export const rootRedducer = (state=initialState, action)=>{
     switch (action.type){

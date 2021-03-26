@@ -5,15 +5,17 @@ import './settings.scss'
 import {useSelector, useDispatch} from 'react-redux'
 import {setHumans, setSpys, setLocation, setSpysArray} from '../../../../store/actions'
 import locations from '../../../../store/locations'
+import { useHistory } from "react-router";
 
 const settings = () => {
+  const history = useHistory();
     function randomInteger(min, max) {
         // случайное число от min до (max+1)
         let rand = min + Math.random() * (max + 1 - min);
         return Math.floor(rand);
       }
       const onSubmit = (data) => {
-        //history.push("./step2");
+        history.push("./cards");
         //selectedLocation=randomInteger(0, locations.length)
         getSpyArray()
 
