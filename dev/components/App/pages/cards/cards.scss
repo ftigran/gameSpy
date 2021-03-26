@@ -36,7 +36,7 @@ body {
                 &.flipped {
                     .front {
                         transform: rotateX(180deg);
-                        color: transparent;
+                        //color: red;
                     }
                     .back {
                         transform: rotateX(0deg);

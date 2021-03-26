@@ -6,22 +6,27 @@ import './cards.scss'
 const cards = () => {
     const location = useSelector(state=>state.location)
     const spyArray = useSelector(state=>state.spyArray)
+    const humans = useSelector(state=>state.humans)
     console.log(spyArray)
     
     const [count, setCount] = useState(0)
 
     //const humans = useSelector(state=>state.humans)
     const clickHandler = ()=>{
-        if(!flipped){
-            console.log('next')
-        console.log(spyArray[count])
-            setCount(count+1);
-        }
+        
         setFlipped(!flipped)
+
+        setTimeout(() => {
+            if(!flipped){
+                console.log('next')
+            console.log(spyArray[count])
+                setCount(count+1);
+            }
+        }, 300);
     }
     const [flipped, setFlipped] = useState(true)
     //console.log(location)
-    if (location) {
+    if (location&&humans>count) {
         return (
             <div className="page-container">
 
