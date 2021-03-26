@@ -1,5 +1,5 @@
 import {createStore, bindActionCreators} from 'redux'
-import {reducer} from './reducers'
+import {rootRedducer} from './reducers'
 
 const user={
   firstName: 'Владимир',
@@ -9,7 +9,7 @@ const user={
   email: 'sqs@sa.ssa',
 };
 
-export const store = createStore(reducer)
+export const store = createStore(rootRedducer)
 console.log(store.getState())
 
 
