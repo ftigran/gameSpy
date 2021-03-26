@@ -1,0 +1,17 @@
+$maxWidth: 1920;
+@function adaptiv-get($pcSize, $mobSize) {
+    //  $mobSize: $pcSize*0.7;
+     $addSize: $pcSize - $mobSize;
+     $maxWidth: $maxWidth - 414;
+     $responsive: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 414px) / #{$maxWidth}));
+     @return $responsive;
+    }
+
+@mixin adaptiv-font($pcSize, $mobSize, $lineHeight:0) {
+//  $mobSize: $pcSize*0.7;
+ $responsive: adaptiv-get($pcSize, $mobSize);
+ font-size: $responsive;
+ @if $lineHeight{
+    line-height: $lineHeight/$pcSize * 1em;
+ }
+}

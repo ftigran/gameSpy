@@ -1,0 +1,41 @@
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport",   content="minimum-scale=1, initial-scale=1, width=device-width")
+
+        title Weleda
+        //- link(
+        //-   rel="stylesheet"
+        //-   type="text/css"
+        //-   href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+        //- )
+        //- link(
+        //-     rel="stylesheet"
+        //-     type="text/css"
+        //-     charset="UTF-8"
+        //-     href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+        //- )
+    body 
+        #pre-loader
+            svg
+                g
+                    path(d="M 50,100 A 1,1 0 0 1 50,0")
+                g
+                    path(d="M 50,75 A 1,1 0 0 0 50,-25")
+                defs
+                    linearGradient(id="gradient" x1="0%" y1="0%" x2="0%" y2="100%")
+                        stop(offset="0%" style="stop-color:rgba(0, 171, 136, 0.5);stop-opacity:1")
+                        stop(offset="100%" style="stop-color:#008F3F;stop-opacity:1")
+                    linearGradient
+        #root
+        script.
+            window.onload = function() {
+            const pLoader = document.getElementById('pre-loader')
+            pLoader.classList.add('anim_fade_out')
+            setTimeout(function () {
+            pLoader.remove()
+            }, 900)
+            }
+		
