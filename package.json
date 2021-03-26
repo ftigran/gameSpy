@@ -1,0 +1,27 @@
+{
+  "name": "gamespy",
+  "version": "1.0.0",
+  "description": "board game spy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ftigran/gameSpy.git"
+  },
+  "keywords": [
+    "react",
+    "material",
+    "ui",
+    "redux",
+    "js",
+    "webpack"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ftigran/gameSpy/issues"
+  },
+  "homepage": "https://github.com/ftigran/gameSpy#readme"
+}
