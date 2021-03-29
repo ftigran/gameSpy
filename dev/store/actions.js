@@ -4,6 +4,7 @@ export const SET_SPY_ARRAY='SET_SPY_ARRAY'
 export const SET_LOCATION='SET_LOCATION'
 export const SET_CARD_ID='SET_CARD_ID'
 export const SHOW_FINAL_MODAL='SHOW_FINAL_MODAL'
+export const SET_GAME_PROGRESS='SET_GAME_PROGRESS'
 
 
 export const setHumans = (bool)=>{
@@ -39,6 +40,12 @@ export const setCardID = (bool)=>{
 export const showFinalModal = (bool)=>{
   return {
       type: SHOW_FINAL_MODAL,
+      payload: bool
+  }
+}
+export const setGameProgress = (bool)=>{
+  return {
+      type: SET_GAME_PROGRESS,
       payload: bool
   }
 }

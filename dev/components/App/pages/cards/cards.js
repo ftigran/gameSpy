@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {useSelector, useDispatch} from 'react-redux'
 import { useHistory } from "react-router";
+import {setGameProgress} from '../../../../store/actions'
 
 import './cards.scss'
 
@@ -8,10 +9,8 @@ const cards = () => {
     const location = useSelector(state=>state.location)
     const spyArray = useSelector(state=>state.spyArray)
     const humans = useSelector(state=>state.humans)
-    console.log(spyArray)
-    
     const [count, setCount] = useState(0)
-
+    const dispatch = useDispatch()
     //const humans = useSelector(state=>state.humans)
     const clickHandler = ()=>{
         
@@ -22,6 +21,9 @@ const cards = () => {
                 console.log('next')
             console.log(spyArray[count])
                 setCount(count+1);
+                if(humans==count){
+                    dispatch(setGameProgress("timer"))
+                }
             }
         }, 300);
     }
@@ -50,8 +52,8 @@ const cards = () => {
             </div>
             </div>
         )
+    }else{
+        return null
     }
-    const history = useHistory();
-    history.push("./timer");
 }
 export default cards

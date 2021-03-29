@@ -3,7 +3,7 @@ import {Typography, Box, Button} from '@material-ui/core'
 import Rating from '@material-ui/lab/Rating';
 import './settings.scss'
 import {useSelector, useDispatch} from 'react-redux'
-import {setHumans, setSpys, setLocation, setSpysArray} from '../../../../store/actions'
+import {setHumans, setSpys, setLocation, setSpysArray, setGameProgress} from '../../../../store/actions'
 import locations from '../../../../store/locations'
 import { useHistory } from "react-router";
 
@@ -15,11 +15,9 @@ const settings = () => {
         return Math.floor(rand);
       }
       const onSubmit = (data) => {
-        history.push("./cards");
-        //selectedLocation=randomInteger(0, locations.length)
         getSpyArray()
-
         dispatch(setLocation(locations[randomInteger(0,locations.length-1)]))
+        dispatch(setGameProgress("cards"))
       };
     const humans = useSelector(state=>state.humans)
     const spys = useSelector(state=>state.spys)

@@ -41,7 +41,8 @@ const App = () => {
             <Grid container className='appContainer' direction='column'>
             <Grid item className='appWrap'>
                 <Provider store={store}>
-                <Routes/>
+                    <GetGameProgress/>
+                    <Timer timer={5*60*1000}/>
                 </Provider>
                 
                     <ScrollSection/>
@@ -51,24 +52,17 @@ const App = () => {
             </>
         );
 }
-const Routes= ()=>{
-  //const isLogged = useSelector(state => state.data.isLogged)
 
-    return(
-<Switch location={location}>
-                            {/* <Route key='faq' location={location} path={"/faq"}
-                            render={() => 
-                                <FAQ/>} 
-                                exact
-                                /> */}
-                            {/* {isLogged?<Route path={"/cabinet"} render={() => <Cabinet/>}/>:<Route path={"/reg"} render={() => <Reg/>}/>} */}
-                            <Route path={"/cards"} render={() => <Cards/>}/>
-                            <Route path={"/timer"}render={() => <Timer timer={5*60*1000}/>}/>
-                            <Route key='index' location={location} path={"/q"} render={() => 
-                                <Settings/>} exact/>
-                            <Route path="*" render={() =><Settings/>}/>
-                        </Switch>
-    )
+const GetGameProgress=()=>{
+    const gameProgress = useSelector(state=>state.gameProgress)
+    switch(gameProgress){
+        case "settings":
+            return <Settings/>
+        case "cards":
+            return <Cards/>
+        case "timer":
+            return <Timer timer={5*60*1000}/>
+    }
 }
 export default App;
 
