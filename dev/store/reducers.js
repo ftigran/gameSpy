@@ -32,6 +32,7 @@ const initialState = {
       case SHOW_FINAL_MODAL:
         return {...state, showModal: action.payload}
       case SET_GAME_PROGRESS:
+        console.log(action)
         return {...state, gameProgress: action.payload}
     }
     return state

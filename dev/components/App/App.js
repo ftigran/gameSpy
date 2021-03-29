@@ -38,11 +38,10 @@ const App = () => {
   //const {location} = useReactRouter()
         return (
             <>  
-            <Grid container className='appContainer' direction='column'>
-            <Grid item className='appWrap'>
+            <Grid container className='appContainer' direction='column' justify="center" alignItems="center" >
+            <Grid item>
                 <Provider store={store}>
                     <GetGameProgress/>
-                    <Timer timer={5*60*1000}/>
                 </Provider>
                 
                     <ScrollSection/>

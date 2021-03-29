@@ -6,7 +6,6 @@ import {setGameProgress} from '../../../../store/actions'
 import './cards.scss'
 
 const cards = () => {
-    const location = useSelector(state=>state.location)
     const spyArray = useSelector(state=>state.spyArray)
     const humans = useSelector(state=>state.humans)
     const [count, setCount] = useState(0)
@@ -20,16 +19,15 @@ const cards = () => {
             if(!flipped){
                 console.log('next')
             console.log(spyArray[count])
-                setCount(count+1);
-                if(humans==count){
+                if(humans-1==count){
                     dispatch(setGameProgress("timer"))
                 }
+                setCount(count+1);
             }
         }, 300);
     }
     const [flipped, setFlipped] = useState(true)
     //console.log(location)
-    if (location&&humans>count) {
         return (
             <div className="page-container">
 
@@ -52,8 +50,5 @@ const cards = () => {
             </div>
             </div>
         )
-    }else{
-        return null
-    }
 }
 export default cards
