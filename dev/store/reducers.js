@@ -10,7 +10,8 @@ const initialState = {
   spys: 1,
   spyArray:[false, true,false],
   location:"Кафе",
-  cardID:0
+  cardID:0,
+  timer:5
 }
   export const rootRedducer = (state=initialState, action)=>{
     switch (action.type){

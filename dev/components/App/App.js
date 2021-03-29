@@ -21,6 +21,7 @@ import './App.scss'
 //import FAQ from '../pages/faq/faq'
 import Settings from './pages/settings/settings'
 import Cards from './pages/cards/cards'
+import Timer from './pages/timer/timer'
 
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
@@ -62,6 +63,7 @@ const Routes= ()=>{
                                 /> */}
                             {/* {isLogged?<Route path={"/cabinet"} render={() => <Cabinet/>}/>:<Route path={"/reg"} render={() => <Reg/>}/>} */}
                             <Route path={"/cards"} render={() => <Cards/>}/>
+                            <Route path={"/timer"}render={() => <Timer timer={5*60*1000}/>}/>
                             <Route key='index' location={location} path={"/q"} render={() => 
                                 <Settings/>} exact/>
                             <Route path="*" render={() =><Settings/>}/>

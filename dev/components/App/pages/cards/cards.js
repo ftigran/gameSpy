@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {useSelector, useDispatch} from 'react-redux'
+import { useHistory } from "react-router";
 
 import './cards.scss'
 
@@ -50,7 +51,7 @@ const cards = () => {
             </div>
         )
     }
-    return "Nazad"
-    
+    const history = useHistory();
+    history.push("./timer");
 }
 export default cards
