@@ -3,6 +3,7 @@ export const SET_SPYS='SET_SPYS'
 export const SET_SPY_ARRAY='SET_SPY_ARRAY'
 export const SET_LOCATION='SET_LOCATION'
 export const SET_CARD_ID='SET_CARD_ID'
+export const SHOW_FINAL_MODAL='SHOW_FINAL_MODAL'
 
 
 export const setHumans = (bool)=>{
@@ -34,4 +35,10 @@ export const setCardID = (bool)=>{
       type: SET_CARD_ID,
       payload: bool
 }
+}
+export const showFinalModal = (bool)=>{
+  return {
+      type: SHOW_FINAL_MODAL,
+      payload: bool
+  }
 }

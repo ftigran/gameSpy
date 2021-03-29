@@ -1,4 +1,4 @@
-import {SET_HUMANS, SET_CARD_ID, SET_SPYS, SET_SPY_ARRAY, SET_LOCATION} from './actions'
+import {SET_HUMANS, SET_CARD_ID, SHOW_FINAL_MODAL,SET_SPYS, SET_SPY_ARRAY, SET_LOCATION} from './actions'
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 // Or with Immutablejs:
@@ -11,7 +11,8 @@ const initialState = {
   spyArray:[false, true,false],
   location:"Кафе",
   cardID:0,
-  timer:5
+  timer:5,
+  showModal:true
 }
   export const rootRedducer = (state=initialState, action)=>{
     switch (action.type){
@@ -27,8 +28,9 @@ const initialState = {
         return {...state, location: action.payload}
       case SET_CARD_ID:
         return {...state, cardID: action.payload}
+      case SHOW_FINAL_MODAL:
+        return {...state, showModal: action.payload}
     }
-      
     return state
   }
 
