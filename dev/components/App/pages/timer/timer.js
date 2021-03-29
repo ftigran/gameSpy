@@ -4,7 +4,10 @@ import { useDispatch } from 'react-redux'
 import './timer.scss'
 import Modal from '../../../Modal/Modal'
 //const cx = cn.bind(styles)
-
+import {bindActionCreators} from 'redux'
+import {Button} from '@material-ui/core'
+import {setGameProgress} from '../../../../store/actions'
+import {connect} from 'react-redux';
 class CountDown extends Component {
     constructor(props) {
         super(props)
@@ -14,7 +17,6 @@ class CountDown extends Component {
         this.state = {
             minutes: 0,
             secounds: 0,
-            time_up:""
         }
         this.deadline=props.timer;
         this.x = null
@@ -41,12 +43,11 @@ class CountDown extends Component {
     }
     timeIsUp(){
         clearInterval(this.x);
-        this.setState({ minutes: 0, seconds: 0, time_up: "TIME IS UP" })
-        //const dispatch = useDispatch();
-
+        this.x = null
+        this.props.setGameProgress('settings')
     }
     render() {
-        const { seconds,minutes, time_up } = this.state
+        const { seconds,minutes } = this.state
         return ( 
             <div onClick={this.timerPause}> 
                 <h1>Countdown Clock</h1>
@@ -54,11 +55,21 @@ class CountDown extends Component {
                     <span className="minutes" id="minute">{minutes}</span>
                     <span className="seconds" id="second">{seconds}</span>
                 </div>
-                <p id="demo">{time_up}</p>
                 {/* <Modal/> */}
+                <Button variant="outlined" onClick={this.timeIsUp}>Завершить</Button>
             </div>
         )
     }
 }
+const mapStateToProps=(state)=>{
+    return {
+        timer: state.timer,
+    }
+};
 
-export default CountDown
+const putActionsToProps=(dispatch)=>{
+    return {
+        setGameProgress: bindActionCreators(setGameProgress, dispatch),
+    }
+}
+export default connect(mapStateToProps, putActionsToProps)(CountDown)
