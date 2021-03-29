@@ -44,7 +44,12 @@ export default function LoginModal(){
             <h4>Локация: {location}</h4>
             <h4>Шпион{spys>1?"ы":null}:</h4>
             {spyArray.map((isSpy, index)=>{
-              
+              if(isSpy){
+                return(
+                  <h4>Игрок {++index}</h4>
+                )
+                return null
+              }
             })}
             <Button onClick={handleClose} variant="outlined">Сыграть ещё раз</Button>
           </div>
