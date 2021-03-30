@@ -7,7 +7,7 @@ import { reducer as formReducer } from 'redux-form';
 
 const initialState = {
   humans:3,
-  spys: 3,
+  spys: 1,
   spyArray:[false, true,true,true,false],
   location:"Кафе",
   cardID:0,

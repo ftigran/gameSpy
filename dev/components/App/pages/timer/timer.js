@@ -18,6 +18,14 @@ class CountDown extends Component {
             minutes: 0,
             secounds: 0,
         }
+        const getWord=()=>{
+            if (this.props.spys==1){
+                return "шпиона"
+            } else {
+                return this.props.spys+"х шпионов"
+            }
+        }
+        this.title="Вычислите среди игроков "+getWord()
         this.deadline=props.timer*60*1000;
         this.x = null
     }
@@ -52,7 +60,7 @@ class CountDown extends Component {
         const { seconds,minutes } = this.state
         return ( 
             <div onClick={this.timerPause}> 
-                <h1>Countdown Clock</h1>
+                <h1>{this.title}</h1>
                 <div id="clockdiv">
                     <span className="minutes" id="minute">{minutes}</span>
                     <span className="seconds" id="second">{seconds}</span>
@@ -66,6 +74,7 @@ class CountDown extends Component {
 const mapStateToProps=(state)=>{
     return {
         timer: state.timer,
+        spys: state.spys
     }
 };
 

@@ -44,19 +44,19 @@ const settings = () => {
 
   return (
         <>  
-<Typography component="h2" variant="h5">
-        🦄 Параметры
+<Typography component="h2" variant="h4">
+        Параметры
       </Typography>
       <Box component="fieldset" mb={3} borderColor="transparent">
         <Typography component="legend" >Количество игроков</Typography>
-        🧒
+        🧒🧒
         <Rating 
         name="humans" 
-        value={humans} 
+        value={humans-2} 
         icon="🧒" 
-        max={10}
+        max={8}
         onChange={(event, newValue) => {
-          if(newValue>2){dispatch(setHumans(newValue));}
+          if(newValue>2){dispatch(setHumans(newValue+2));}
         }}
         />
       </Box>
@@ -66,7 +66,7 @@ const settings = () => {
         name="spys" 
         value={spys} 
         icon="🕴️" 
-        max={humans-2}
+        max={Math.floor(humans/2)}
         onChange={(event, newValue) => {
           dispatch(setSpys(newValue))
         }}
