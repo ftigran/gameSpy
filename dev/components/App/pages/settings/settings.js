@@ -49,14 +49,19 @@ const settings = () => {
       </Typography>
       <Box component="fieldset" mb={3} borderColor="transparent">
         <Typography component="legend" >Количество игроков</Typography>
-        🧒🧒
+        {/* //<span style={{fontSize: "1.5rem", cursor:"pointer"}}>🧒🧒</span> */}
         <Rating 
         name="humans" 
-        value={humans-2} 
+        value={humans} 
+        className="humans"
         icon="🧒" 
-        max={8}
+        max={10}
         onChange={(event, newValue) => {
-          if(newValue>2){dispatch(setHumans(newValue+2));}
+          if(newValue<3 )
+          {
+            newValue=3
+          }
+          dispatch(setHumans(newValue));
         }}
         />
       </Box>

@@ -1,0 +1,8 @@
+.humans{
+    label{
+        &:nth-of-type(2),&:nth-of-type(3){
+        .MuiRating-iconEmpty{
+            color: black;
+        }
+    }}
+}

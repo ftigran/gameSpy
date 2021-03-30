@@ -8,6 +8,7 @@ import './cards.scss'
 const cards = () => {
     const spyArray = useSelector(state=>state.spyArray)
     const humans = useSelector(state=>state.humans)
+    const location = useSelector(state=>state.location)
     const [count, setCount] = useState(0)
     const dispatch = useDispatch()
     //const humans = useSelector(state=>state.humans)
@@ -18,7 +19,6 @@ const cards = () => {
         setTimeout(() => {
             if(!flipped){
                 console.log('next')
-            console.log(spyArray[count])
             if(humans-1==count){
                 dispatch(setGameProgress("timer"))
 
@@ -32,23 +32,19 @@ const cards = () => {
     //console.log(location)
         return (
             <div className="page-container">
-
-<div 
-            onClick={clickHandler} 
-            className={"card-container" + (flipped ? " flipped" : "")}
->
-
-    <div className="back">
-            <h1>
-            🕵️‍♂️
-            </h1>
-      </div>
-      <div className="front">
-            {spyArray[count]?"Шпион":location}
-      </div>
-
-
-            </div>
+                <div 
+                    onClick={clickHandler} 
+                className={"card-container" + (flipped ? " flipped" : "")}
+                >
+                    <div className="back">
+                        <h1>
+                            🕵️‍♂️
+                        </h1>
+                    </div>
+                    <div className="front">
+                        {spyArray[count]?"Шпион":location}
+                    </div>
+                </div>
             </div>
         )
 }
