@@ -7,12 +7,12 @@ import { reducer as formReducer } from 'redux-form';
 
 const initialState = {
   humans:3,
-  spys: 1,
+  spys: 2,
   spyArray:[true, false,true],
   location:"Кафе",
   cardID:0,
   timer:1,
-  showModal:false,
+  showModal:true,
   gameProgress:"timer"
 }
   export const rootRedducer = (state=initialState, action)=>{

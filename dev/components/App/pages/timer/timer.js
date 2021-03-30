@@ -6,7 +6,7 @@ import Modal from '../../../Modal/Modal'
 //const cx = cn.bind(styles)
 import {bindActionCreators} from 'redux'
 import {Button} from '@material-ui/core'
-import {setGameProgress} from '../../../../store/actions'
+import {showFinalModal} from '../../../../store/actions'
 import {connect} from 'react-redux';
 class CountDown extends Component {
     constructor(props) {
@@ -27,6 +27,7 @@ class CountDown extends Component {
         }
         this.title="Вычислите среди игроков "+getWord()
         this.deadline=props.timer*60*1000;
+        this.count()
         this.x = null
     }
     count () {        
@@ -54,18 +55,18 @@ class CountDown extends Component {
         }
     }
     timeIsUp(){
-        this.props.setGameProgress('settings')
+        this.props.showFinalModal(true)
     }
     render() {
         const { seconds,minutes } = this.state
         return ( 
-            <div onClick={this.timerPause} className="timer"> 
+            <div className="timer"> 
                 <h1>{this.title}</h1>
-                <div id="clockdiv">
+                <div id={"clockdiv"} onClick={this.timerPause}>
                     <span className="minutes" id="minute">{minutes}</span>
                     <span className="seconds" id="second">{seconds}</span>
                 </div>
-                {/* <Modal/> */}
+                <Modal/>
                 <Button variant="contained" onClick={this.timeIsUp}>Завершить</Button>
             </div>
         )
@@ -80,7 +81,8 @@ const mapStateToProps=(state)=>{
 
 const putActionsToProps=(dispatch)=>{
     return {
-        setGameProgress: bindActionCreators(setGameProgress, dispatch),
+        showFinalModal: bindActionCreators(showFinalModal, dispatch),
+        
     }
 }
 export default connect(mapStateToProps, putActionsToProps)(CountDown)

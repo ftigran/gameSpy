@@ -7,8 +7,7 @@ import './Modal.scss'
 
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router';
-
-import {showFinalModal} from '../../store/actions'
+import {setGameProgress, showFinalModal} from '../../store/actions'
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 
@@ -23,6 +22,8 @@ export default function LoginModal(){
     
     const handleClose = () => {
         dispatch(showFinalModal(false));
+        dispatch(setGameProgress('settings'))
+        
     };
 
         return (
@@ -40,9 +41,9 @@ export default function LoginModal(){
       >
         <Fade in={open}>
           <div className={'modalWindow'}>
-            <h3 id="transition-modal-title">Игра завершена!</h3>
-            <h4>Локация: {location}</h4>
-            <h4>Шпион{spys>1?"ы":null}:</h4>
+            <h3 id="transition-modal-title" className="light">Игра завершена!</h3>
+            <h4 className="light">Локация: <b>{location}</b></h4>
+            <h4 className="light">Шпион{spys>1?"ы":null}:
             {spyArray.map((isSpy, index)=>{
               if(isSpy){
                 return(
@@ -50,8 +51,8 @@ export default function LoginModal(){
                 )
                 return null
               }
-            })}
-            <Button onClick={handleClose} variant="outlined">Сыграть ещё раз</Button>
+            })}</h4>
+            <Button onClick={handleClose} variant="contained">Сыграть ещё раз</Button>
           </div>
         </Fade>
       </Modal>
