@@ -19,10 +19,12 @@ const cards = () => {
             if(!flipped){
                 console.log('next')
             console.log(spyArray[count])
-                if(humans-1==count){
-                    dispatch(setGameProgress("timer"))
-                }
-                setCount(count+1);
+            if(humans-1==count){
+                dispatch(setGameProgress("timer"))
+
+            }else{
+                setCount((count)=>count+1);
+            }
             }
         }, 300);
     }
@@ -36,12 +38,11 @@ const cards = () => {
             className={"card-container" + (flipped ? " flipped" : "")}
 >
 
-<div className="back">
+    <div className="back">
             <h1>
             🕵️‍♂️
             </h1>
       </div>
-
       <div className="front">
             {spyArray[count]?"Шпион":location}
       </div>

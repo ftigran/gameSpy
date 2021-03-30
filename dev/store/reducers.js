@@ -11,7 +11,7 @@ const initialState = {
   spyArray:[false, true,true,true,false],
   location:"Кафе",
   cardID:0,
-  timer:5,
+  timer:1,
   showModal:false,
   gameProgress:"settings"
 }

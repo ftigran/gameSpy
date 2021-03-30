@@ -18,7 +18,7 @@ class CountDown extends Component {
             minutes: 0,
             secounds: 0,
         }
-        this.deadline=props.timer;
+        this.deadline=props.timer*60*1000;
         this.x = null
     }
     count () {        
@@ -33,6 +33,10 @@ class CountDown extends Component {
     componentDidMount() {
         this.x = setInterval(this.count, 1000);
     }
+    componentWillUnmount(){
+        clearInterval(this.x);
+        this.x = null
+    }
     timerPause(){
         if(this.x){
             clearInterval(this.x);
@@ -42,8 +46,6 @@ class CountDown extends Component {
         }
     }
     timeIsUp(){
-        clearInterval(this.x);
-        this.x = null
         this.props.setGameProgress('settings')
     }
     render() {

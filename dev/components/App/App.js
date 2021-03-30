@@ -60,7 +60,7 @@ const GetGameProgress=()=>{
         case "cards":
             return <Cards/>
         case "timer":
-            return <Timer timer={5*60*1000}/>
+            return <Timer/>
     }
 }
 export default App;
