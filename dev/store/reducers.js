@@ -13,7 +13,7 @@ const initialState = {
   cardID:0,
   timer:1,
   showModal:false,
-  gameProgress:"cards"
+  gameProgress:"timer"
 }
   export const rootRedducer = (state=initialState, action)=>{
     switch (action.type){

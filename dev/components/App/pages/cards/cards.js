@@ -37,12 +37,10 @@ const cards = () => {
                 className={"card-container" + (flipped ? " flipped" : "")}
                 >
                     <div className="back">
-                        <h1>
-                            🕵️‍♂️
-                        </h1>
+                        🕵️‍♂️
                     </div>
                     <div className="front">
-                        {spyArray[count]?"Шпион":location}
+                        {spyArray[count]?<span className="spyCard">Шпион</span>:location}
                     </div>
                 </div>
             </div>

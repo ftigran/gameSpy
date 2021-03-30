@@ -77,7 +77,7 @@ const settings = () => {
         }}
         />
       </Box>
-        <Button onClick={onSubmit}>Next</Button>
+        <Button variant="contained" onClick={onSubmit}>Начать игру</Button>
         </>
     )
 }

@@ -39,7 +39,7 @@ const App = () => {
         return (
             <>  
             <Grid container className='appContainer' direction='column' justify="center" alignItems="center" >
-            <Grid item>
+            <Grid item className="appWpap">
                 <Provider store={store}>
                     <GetGameProgress/>
                 </Provider>

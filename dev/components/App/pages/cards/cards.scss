@@ -1,18 +1,5 @@
-$main-font: 'Yanone Kaffeesatz',
-sans-serif;
-$new-white: rgb(248, 246, 234);
-$text-margin: 10px;
+$new-white: rgb(245, 234, 170);
 
-body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    background: rgb(209, 182, 214);
-    font-family: $main-font;
-    position: absolute;
-    box-sizing: border-box;
-    #root {
-        height: 100%;
         .page-container {
             position: relative;
             width: 100%;
@@ -23,10 +10,7 @@ body {
                 height: 350px;
                 margin: 0;
                 padding: 0;
-                top: 20px;
-                width: 330px;
-                margin-left: 35%;
-              margin-right: 35%;
+                width: 270px;
                 position: relative;
                 transform-style: preserve-3d;
                 box-sizing: border-box;
@@ -62,76 +46,28 @@ body {
                     z-index: 2;
                     transform: rotateX(0deg) scale(1.5);
                     box-shadow: 20px 20px 30px #5f4d63;
-
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 2rem;
                     /* front tile styles go here! */
+                    font-weight: 900;
+                    .spyCard{
+                        color: rgb(230, 70, 150)
+                    }
                 }
                 .back {
-                    background: $new-white;
                     transform: rotateX(-180deg) scale(1.5);
-
+                    background-color: #84eacb;
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='32' viewBox='0 0 16 32'%3E%3Cg fill='%23000000' fill-opacity='0.1'%3E%3Cpath fill-rule='evenodd' d='M0 24h4v2H0v-2zm0 4h6v2H0v-2zm0-8h2v2H0v-2zM0 0h4v2H0V0zm0 4h2v2H0V4zm16 20h-6v2h6v-2zm0 4H8v2h8v-2zm0-8h-4v2h4v-2zm0-20h-6v2h6V0zm0 4h-4v2h4V4zm-2 12h2v2h-2v-2zm0-8h2v2h-2V8zM2 8h10v2H2V8zm0 8h10v2H2v-2zm-2-4h14v2H0v-2zm4-8h6v2H4V4zm0 16h6v2H4v-2zM6 0h2v2H6V0zm0 24h2v2H6v-2z'/%3E%3C/g%3E%3C/svg%3E");
                     padding: 20px;
                     font-size: 20px;
+                    display:flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 3rem
                     /* back tile styles go here! */
                 }
-                .image-container {
-                    position: relative;
-                    .card-image {
-                        width: 100%;
-                        border-radius: 10px;
-                    }
-                    .title {
-                        font-size: 34px;
-                        position: absolute;
-                        margin-bottom: $text-margin;
-                        margin-left: $text-margin;
-                        bottom: 0;
-                        left: 0;
-                        color: $new-white;
-                    }
-                }
-                .main-area {
-                    margin-left: $text-margin;
-                    margin-top: $text-margin;
-                    margin-right: $text-margin;
-                    
-                    .blog-post {
-                        height: 100%;
-                        
-                        .date {
-                        margin-top: $text-margin;
-                        margin-bottom: 5px;
-                        font-size: 20px;
-                    }
-                    .read-more {
-                        font-size: 20px;
-                        position: relative;
-                        bottom: 0px;
-                        text-align: right;
-                    }
-                        .blog-content {
-                            height: 90%;
-                            display: block;
-                            margin-top: $text-margin;
-                            margin-bottom: $text-margin;
-                            white-space: nowrap;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                        }
-                    }
+                
                 }
             }
-        }
-        footer {
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            margin: 20px;
-
-        }
-    }
-}
-
-
-body .appContainer .appWrap {
-    background-color: transparent;
-}

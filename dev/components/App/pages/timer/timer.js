@@ -59,14 +59,14 @@ class CountDown extends Component {
     render() {
         const { seconds,minutes } = this.state
         return ( 
-            <div onClick={this.timerPause}> 
+            <div onClick={this.timerPause} className="timer"> 
                 <h1>{this.title}</h1>
                 <div id="clockdiv">
                     <span className="minutes" id="minute">{minutes}</span>
                     <span className="seconds" id="second">{seconds}</span>
                 </div>
                 {/* <Modal/> */}
-                <Button variant="outlined" onClick={this.timeIsUp}>Завершить</Button>
+                <Button variant="contained" onClick={this.timeIsUp}>Завершить</Button>
             </div>
         )
     }
