@@ -2,7 +2,7 @@ export const SET_HUMANS='SET_HUMANS'
 export const SET_SPYS='SET_SPYS'
 export const SET_SPY_ARRAY='SET_SPY_ARRAY'
 export const SET_LOCATION='SET_LOCATION'
-export const SET_CARD_ID='SET_CARD_ID'
+export const SET_TIMER='SET_TIMER'
 export const SHOW_FINAL_MODAL='SHOW_FINAL_MODAL'
 export const SET_GAME_PROGRESS='SET_GAME_PROGRESS'
 
@@ -25,15 +25,16 @@ export const setSpysArray = (bool)=>{
       payload: bool
 }
 }
-export const setLocation = (bool)=>{
+
+export const setTimer = (bool)=>{
   return {
-      type: SET_LOCATION,
+      type: SET_TIMER,
       payload: bool
 }
 }
-export const setCardID = (bool)=>{
+export const setLocation = (bool)=>{
   return {
-      type: SET_CARD_ID,
+      type: SET_LOCATION,
       payload: bool
 }
 }

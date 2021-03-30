@@ -10,6 +10,5 @@ const user={
 };
 
 export const store = createStore(rootRedducer)
-console.log(store.getState())
 
 

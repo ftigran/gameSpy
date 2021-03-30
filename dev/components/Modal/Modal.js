@@ -6,14 +6,11 @@ import './Modal.scss'
 //import {WrapedUserError} from '../UserLoginErrorModal/UserLoginErrorModal'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { useHistory } from 'react-router';
 import {setGameProgress, showFinalModal} from '../../store/actions'
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 
 export default function LoginModal(){
-      let history = useHistory();
-
     const open =useSelector(state => state.showModal)
     const location =useSelector(state => state.location)
     const spys =useSelector(state => state.spys)
@@ -43,15 +40,15 @@ export default function LoginModal(){
           <div className={'modalWindow'}>
             <h3 id="transition-modal-title" className="light">Игра завершена!</h3>
             <h4 className="light">Локация: <b>{location}</b></h4>
-            <h4 className="light">Шпион{spys>1?"ы":null}:
+            <h4 className="light">Шпион{spys>1?"ы":null}:</h4>
             {spyArray.map((isSpy, index)=>{
               if(isSpy){
                 return(
-                  <h4>Игрок {++index}</h4>
+                  <p key={index}>Игрок {++index}</p>
                 )
                 return null
               }
-            })}</h4>
+            })}
             <Button onClick={handleClose} variant="contained">Сыграть ещё раз</Button>
           </div>
         </Fade>

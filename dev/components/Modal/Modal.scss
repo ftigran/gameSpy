@@ -1,5 +1,5 @@
 .modalWindow{
-    background:wheat;
+    background:white;
     max-width: 320px;
     width: 100%;
     border-radius: 8px;
@@ -11,8 +11,9 @@
     
     h4{
         margin-bottom:0;
-        h4{
+        p{
             margin: 0.3rem;
+            font-weight: 900;
         }
     }
     button{

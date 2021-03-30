@@ -6,13 +6,10 @@ import App from "./components/App/App";
 
 //import list from "./components/Header/List/List";
 import './index.scss';
-import {BrowserRouter} from 'react-router-dom'
 
 
 ReactDOM.render(
-  <BrowserRouter basename={'/'}>
     <App/>
-  </BrowserRouter>
 
 , document.getElementById("root"));
 

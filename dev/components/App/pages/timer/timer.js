@@ -27,7 +27,6 @@ class CountDown extends Component {
         }
         this.title="Вычислите среди игроков "+getWord()
         this.deadline=props.timer*60*1000;
-        this.count()
         this.x = null
     }
     count () {        
@@ -40,6 +39,7 @@ class CountDown extends Component {
             }
     }
     componentDidMount() {
+        this.count()
         this.x = setInterval(this.count, 1000);
     }
     componentWillUnmount(){

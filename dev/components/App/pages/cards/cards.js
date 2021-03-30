@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {useSelector, useDispatch} from 'react-redux'
-import { useHistory } from "react-router";
 import {setGameProgress} from '../../../../store/actions'
 
 import './cards.scss'
@@ -18,7 +17,6 @@ const cards = () => {
 
         setTimeout(() => {
             if(!flipped){
-                console.log('next')
             if(humans-1==count){
                 dispatch(setGameProgress("timer"))
 
@@ -29,7 +27,6 @@ const cards = () => {
         }, 300);
     }
     const [flipped, setFlipped] = useState(true)
-    //console.log(location)
         return (
             <div className="page-container">
                 <div 
