@@ -9,6 +9,7 @@ html body{
         font-weight: 900;
         line-height: 150%;
         text-align: center;
+        margin:0;
     }
 
 html, body, #root {
@@ -35,7 +36,7 @@ body {
   }
    
   body::-webkit-scrollbar-thumb {
-    background-color: #008F3F;
+    background-color: #44bce0;
     border-radius: 5px;
   }
   .anim_fade_out {

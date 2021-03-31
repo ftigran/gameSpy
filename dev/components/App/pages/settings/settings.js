@@ -59,6 +59,11 @@ const settings = () => {
           {
             newValue=3
           }
+          const floor=Math.floor(newValue/2)
+          if(floor<=spys){
+            dispatch(setSpys(floor));
+          }
+
           dispatch(setHumans(newValue));
           dispatch(setTimer(2+newValue))
         }}

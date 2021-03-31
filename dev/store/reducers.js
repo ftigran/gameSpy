@@ -10,7 +10,7 @@ const initialState = {
   location:"Кафе",
   timer:5,
   showModal:false,
-  gameProgress:"settings"
+  gameProgress:"timer"
 }
   export const rootRedducer = (state=initialState, action)=>{
     switch (action.type){

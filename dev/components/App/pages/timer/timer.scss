@@ -5,6 +5,17 @@ align-items: center;
   button{
     width: fit-content;
   }
+  h1{
+    line-height: 100%;
+  }
+  .button{
+    width:64px;
+    height: 64px;
+    color: #aaa7a7;
+    &.active{
+    color: #00BF96;
+    }
+  }
 }
 
 #clockdiv{
@@ -14,16 +25,23 @@ align-items: center;
     font-size: 2rem;
     padding: 10px;
     border-radius: 3px;
-    background: #00BF96;
-    display: inline-block;
-    margin: 2rem;    
+    background: #aaa7a7;
+    margin: 2rem;  
+    margin-top: 1rem;  
     border-radius: 15px;
-    width: fit-content;
-}
-#clockdiv > span{
-    padding: 15px;
-    border-radius: 12px;
-    background: #00816A;
-    margin: 1px;
-    display: inline-block;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2px;
+    &.active{
+      background: #00BF96;
+      & > span{
+        background: #00816A;
+      }
+    }
+    & > span{
+      padding: 15px;
+      border-radius: 12px;
+      background: #818080;
+      display: inline-block;
+  }
 }

@@ -8,6 +8,9 @@ import {bindActionCreators} from 'redux'
 import {Button} from '@material-ui/core'
 import {showFinalModal} from '../../../../store/actions'
 import {connect} from 'react-redux';
+import IconButton from '@material-ui/core/IconButton';
+import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
+import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
 class CountDown extends Component {
     constructor(props) {
         super(props)
@@ -17,6 +20,7 @@ class CountDown extends Component {
         this.state = {
             minutes: 0,
             secounds: 0,
+            active:false
         }
         const getWord=()=>{
             if (this.props.spys==1){
@@ -41,16 +45,19 @@ class CountDown extends Component {
     componentDidMount() {
         this.count()
         this.x = setInterval(this.count, 1000);
+        this.setState({active:true})
     }
     componentWillUnmount(){
         clearInterval(this.x);
         this.x = null
     }
     timerPause(){
-        if(this.x){
+        if(this.state.active){
+            this.setState({active:false})
             clearInterval(this.x);
             this.x = null
         }else{
+            this.setState({active:true})
             this.x = setInterval(this.count, 1000);
         }
     }
@@ -58,11 +65,14 @@ class CountDown extends Component {
         this.props.showFinalModal(true)
     }
     render() {
-        const { seconds,minutes } = this.state
+        const { seconds,minutes,active } = this.state
         return ( 
             <div className="timer"> 
                 <h1>{this.title}</h1>
-                <div id={"clockdiv"} onClick={this.timerPause}>
+                <IconButton onClick={this.timerPause} aria-label="upload picture" component="span">
+                    {active?<PlayCircleOutlineIcon className="button active" />:<PauseCircleOutlineIcon className="button" />}
+                </IconButton>
+                <div id={"clockdiv"} className={active?"active":null} onClick={this.timerPause}>
                     <span className="minutes" id="minute">{minutes}</span>
                     <span className="seconds" id="second">{seconds}</span>
                 </div>
