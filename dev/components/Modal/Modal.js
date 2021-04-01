@@ -16,6 +16,7 @@ export default function LoginModal(){
     const spys =useSelector(state => state.spys)
     const spyArray =useSelector(state => state.spyArray)
     const dispatch = useDispatch()
+    const isDarkTheme = useSelector(state=>state.isDarkTheme)
     
     const handleClose = () => {
         dispatch(showFinalModal(false));
@@ -37,7 +38,7 @@ export default function LoginModal(){
         // disableScrollLock={true}
       >
         <Fade in={open}>
-          <div className={'modalWindow'}>
+          <div className={isDarkTheme?"modalWindow dark":"modalWindow"}>
             <h3 id="transition-modal-title" className="light">Игра завершена!</h3>
             <h4 className="light">Локация: <b>{location}</b></h4>
             <h4 className="light">Шпион{spys>1?"ы":null}:</h4>

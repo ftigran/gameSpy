@@ -21,21 +21,25 @@ import {Provider, useSelector} from 'react-redux';
 
 
 const App = () => {
-    
         return (
             <>  
-            <Grid container className='appContainer' direction='column' justify="center" alignItems="center" >
-            <Grid item className="appWpap">
                 <Provider store={store}>
-                    <GetGameProgress/>
+                    <PageWrapper/>
                 </Provider>
-            </Grid>
-            </Grid>
-                    
             </>
         );
 }
 
+const PageWrapper=()=>{
+    const isDarkTheme = useSelector(state=>state.isDarkTheme)
+    return(
+<Grid container className={isDarkTheme?"appContainer dark":"appContainer"} direction='column' justify="center" alignItems="center">
+            <Grid item className="appWpap">
+                    <GetGameProgress/>
+            </Grid>
+            </Grid>
+    )
+}
 const GetGameProgress=()=>{
     const gameProgress = useSelector(state=>state.gameProgress)
     switch(gameProgress){

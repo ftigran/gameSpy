@@ -8,7 +8,10 @@
     .light{
         font-weight: 400;
     }
-    
+    &.dark{
+        background-color: #0d1117;
+        color:#FFFFFF;}
+        
     h4{
         margin-bottom:0;
         p{

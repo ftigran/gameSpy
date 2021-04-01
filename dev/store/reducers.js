@@ -1,4 +1,4 @@
-import {SET_HUMANS, SET_TIMER, SET_GAME_PROGRESS, SET_CARD_ID, SHOW_FINAL_MODAL,SET_SPYS, SET_SPY_ARRAY, SET_LOCATION} from './actions'
+import {SET_HUMANS,SET_THEME, SET_TIMER, SET_GAME_PROGRESS, SET_CARD_ID, SHOW_FINAL_MODAL,SET_SPYS, SET_SPY_ARRAY, SET_LOCATION} from './actions'
 import { combineReducers } from 'redux';
 // Or with Immutablejs:
 
@@ -10,7 +10,8 @@ const initialState = {
   location:"Кафе",
   timer:5,
   showModal:false,
-  gameProgress:"timer"
+  gameProgress:"settings",
+  isDarkTheme:true,
 }
   export const rootRedducer = (state=initialState, action)=>{
     switch (action.type){
@@ -28,6 +29,9 @@ const initialState = {
         return {...state, showModal: action.payload}
       case SET_GAME_PROGRESS:
         return {...state, gameProgress: action.payload}
+      case SET_THEME:
+        console.log(action)
+        return {...state, isDarkTheme: action.payload}
     }
     return state
   }

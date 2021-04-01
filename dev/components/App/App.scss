@@ -12,7 +12,15 @@ fieldset{
 }
 .appContainer{
     height: 100%;
+    transition: all 1s;
     .appWpap{
         max-width: 320px;
+    }
+    &.dark{
+        background-color: #0d1117;
+        color:#FFFFFF;
+        .card-container .front{
+            background: #222c35;
+        }
     }
 }

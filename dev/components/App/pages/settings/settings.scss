@@ -6,3 +6,38 @@
         }
     }}
 }
+button.themeButton{
+    & span span{
+        transition: all 0.3s linear;
+        &:first-child{
+            transform: translateY(0);
+          }
+          &:nth-child(2){
+            transform: translateY(-100px)
+          }
+    }
+        background: linear-gradient(180deg, #44bce0 0%, #92cfda 100%);
+        //border: 2px solid ${({ theme }) => theme.toggleBorder};
+        border-radius: 30px;
+        cursor: pointer;
+        display: flex;
+        font-size: 1.2rem;
+        justify-content: space-around;
+        margin: 2rem auto;
+        overflow: hidden;
+        padding: 0;
+        position: relative;
+        width: 60px;
+        height: 33px;
+
+      &.dark{
+        background: linear-gradient(0deg, #393a3a 0%, #070707 100%);
+        span{
+        & span:first-child{
+            transform: translateY(100px)
+          }
+          & span:nth-child(2){
+            transform: translateY(0)
+          }
+      }}
+}

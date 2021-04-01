@@ -5,8 +5,14 @@ export const SET_LOCATION='SET_LOCATION'
 export const SET_TIMER='SET_TIMER'
 export const SHOW_FINAL_MODAL='SHOW_FINAL_MODAL'
 export const SET_GAME_PROGRESS='SET_GAME_PROGRESS'
+export const SET_THEME='SET_THEME'
 
-
+export const setTheme = (bool)=>{
+  return {
+      type: SET_THEME,
+      payload: bool
+}
+}
 export const setHumans = (bool)=>{
   return {
       type: SET_HUMANS,

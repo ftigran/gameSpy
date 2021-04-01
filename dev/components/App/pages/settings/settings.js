@@ -3,8 +3,9 @@ import {Typography, Box, Button} from '@material-ui/core'
 import Rating from '@material-ui/lab/Rating';
 import './settings.scss'
 import {useSelector, useDispatch} from 'react-redux'
-import {setHumans,setTimer, setSpys, setLocation, setSpysArray, setGameProgress} from '../../../../store/actions'
+import {setHumans,setTimer,setTheme, setSpys, setLocation, setSpysArray, setGameProgress} from '../../../../store/actions'
 import locations from '../../../../store/locations'
+import { makeStyles } from '@material-ui/core/styles';
 
 const settings = () => {
     function randomInteger(min, max) {
@@ -38,6 +39,14 @@ const settings = () => {
       }
     }
     dispatch(setSpysArray(humansIsSpy))
+  }
+  const isDarkTheme = useSelector(state=>state.isDarkTheme)
+  const toggleTheme = () => {
+    if (isDarkTheme == false) {
+      dispatch(setTheme(true));
+    } else {
+      dispatch(setTheme(false));
+    }
   }
 
   return (
@@ -82,6 +91,10 @@ const settings = () => {
         />
       </Box>
         <Button variant="contained" onClick={onSubmit}>Начать игру</Button>
+        <Button variant="outlined" className={isDarkTheme?"themeButton dark":"themeButton"} onClick={toggleTheme}>
+        <span>☀️</span>
+        <span>🌙</span>
+        </Button>
         </>
     )
 }
