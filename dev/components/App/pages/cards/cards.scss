@@ -32,6 +32,8 @@ $new-white: rgb(245, 234, 170);
                     height: 100%;
                     width: 100%;
                     display: block;
+                    line-height:150%;
+                    word-break: break-word;
                     background: $new-white;
                     box-shadow: 10px 10px 5px rgb(95, 77, 99);
                     padding: 10px;

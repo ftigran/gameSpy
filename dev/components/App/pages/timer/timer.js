@@ -11,6 +11,17 @@ import {connect} from 'react-redux';
 import IconButton from '@material-ui/core/IconButton';
 import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
 import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
+
+import timer1 from '../../../../sounds/timer1.mp3'
+import timer2 from '../../../../sounds/timer2.mp3'
+import gameEnd from '../../../../sounds/gameEnd.mp3'
+import toggleSound from '../../../../sounds/toggle.mp3'
+
+const sound1 = new Audio(timer1)
+const sound2 = new Audio(timer2)
+const gameEndSound = new Audio(gameEnd)
+const toggle = new Audio(toggleSound)
+
 class CountDown extends Component {
     constructor(props) {
         super(props)
@@ -37,10 +48,19 @@ class CountDown extends Component {
         this.deadline-=1000
         var minutes = Math.floor((this.deadline % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((this.deadline % (1000 * 60)) / 1000);
+        this.sound();
         this.setState({minutes, seconds})
         if (this.deadline < 0) {
                 this.timeIsUp()
             }
+    }
+    sound(){
+        if(this.tick){
+            sound1.play()
+        }else{
+            sound2.play()
+        }
+        this.tick!=this.tick
     }
     componentDidMount() {
         this.count()
@@ -52,6 +72,7 @@ class CountDown extends Component {
         this.x = null
     }
     timerPause(){
+        toggle.play();
         if(this.state.active){
             this.setState({active:false})
             clearInterval(this.x);
@@ -62,6 +83,8 @@ class CountDown extends Component {
         }
     }
     timeIsUp(){
+        clearInterval(this.x);
+        gameEndSound.play();
         this.props.showFinalModal(true)
     }
     render() {
@@ -70,7 +93,7 @@ class CountDown extends Component {
             <div className="timer"> 
                 <h1>{this.title}</h1>
                 <IconButton onClick={this.timerPause} aria-label="upload picture" component="span">
-                    {active?<PlayCircleOutlineIcon className="button active" />:<PauseCircleOutlineIcon className="button" />}
+                    {active?<PauseCircleOutlineIcon className="button active" />:<PlayCircleOutlineIcon className="button" />}
                 </IconButton>
                 <div id={"clockdiv"} className={active?"active":null} onClick={this.timerPause}>
                     <span className="minutes" id="minute">{minutes}</span>

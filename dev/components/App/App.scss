@@ -13,6 +13,8 @@ fieldset{
 .appContainer{
     height: 100%;
     transition: all 1s;
+      user-select: none;
+
     .appWpap{
         max-width: 320px;
     }

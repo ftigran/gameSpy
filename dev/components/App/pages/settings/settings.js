@@ -6,6 +6,12 @@ import {useSelector, useDispatch} from 'react-redux'
 import {setHumans,setTimer,setTheme, setSpys, setLocation, setSpysArray, setGameProgress} from '../../../../store/actions'
 import locations from '../../../../store/locations'
 import { makeStyles } from '@material-ui/core/styles';
+import startSound from '../../../../sounds/start.mp3'
+import toggleSound from '../../../../sounds/toggle.mp3'
+import clickSound from '../../../../sounds/click.mp3'
+const sound = new Audio(startSound)
+const toggle = new Audio(toggleSound)
+const click = new Audio(clickSound)
 
 const settings = () => {
     function randomInteger(min, max) {
@@ -14,6 +20,7 @@ const settings = () => {
         return Math.floor(rand);
       }
       const onSubmit = (data) => {
+        sound.play()
         getSpyArray()
         dispatch(setLocation(locations[randomInteger(0,locations.length-1)]))
         dispatch(setGameProgress("cards"))
@@ -47,15 +54,16 @@ const settings = () => {
     } else {
       dispatch(setTheme(false));
     }
+    toggle.play();
   }
 
   return (
-        <>  
+        <div className="ratings">  
 <Typography component="h2" variant="h4">
         Параметры
       </Typography>
       <Box component="fieldset" mb={3} borderColor="transparent">
-        <Typography component="legend" >Количество игроков</Typography>
+        <Typography component="legend" >Количество игроков: {humans}</Typography>
         {/* //<span style={{fontSize: "1.5rem", cursor:"pointer"}}>🧒🧒</span> */}
         <Rating 
         name="humans" 
@@ -72,20 +80,24 @@ const settings = () => {
           if(floor<=spys){
             dispatch(setSpys(floor));
           }
-
+          click.play()
           dispatch(setHumans(newValue));
           dispatch(setTimer(2+newValue))
         }}
         />
       </Box>
       <Box component="fieldset" mb={3} borderColor="transparent">
-        <Typography component="legend" >Количество шпионов</Typography>
+        <Typography component="legend" >Количество шпионов: {spys}</Typography>
         <Rating 
         name="spys" 
         value={spys} 
         icon="🕴️" 
         max={Math.floor(humans/2)}
         onChange={(event, newValue) => {
+          click.play()
+          if(newValue<1){
+            newValue=1
+          }
           dispatch(setSpys(newValue))
         }}
         />
@@ -95,7 +107,7 @@ const settings = () => {
         <span>☀️</span>
         <span>🌙</span>
         </Button>
-        </>
+        </div>
     )
 }
 export default settings

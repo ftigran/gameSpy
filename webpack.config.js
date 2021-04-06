@@ -6,6 +6,7 @@ const {
 const pug = require('./webpack/pug')
 const scss = require('./webpack/scss')
 const images = require('./webpack/images')
+const sounds = require('./webpack/sounds')
 const fonts = require('./webpack/fonts')
 const devServer = require('./webpack/devserver')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -61,6 +62,7 @@ const common = merge([{
     pug(),
     scss(),
     images(),
+    sounds(),
     fonts()
 ])
 

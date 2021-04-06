@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import {useSelector, useDispatch} from 'react-redux'
 import {setGameProgress} from '../../../../store/actions'
-
+import fileSound from '../../../../sounds/card.mp3'
+const sound = new Audio(fileSound)
 import './cards.scss'
 
 const cards = () => {
@@ -12,6 +13,7 @@ const cards = () => {
     const dispatch = useDispatch()
     //const humans = useSelector(state=>state.humans)
     const clickHandler = ()=>{
+        sound.play()
         
         setFlipped(!flipped)
 

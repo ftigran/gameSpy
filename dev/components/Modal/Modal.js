@@ -9,6 +9,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import {setGameProgress, showFinalModal} from '../../store/actions'
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import clickSound from '../../sounds/click.mp3'
+const click = new Audio(clickSound)
 
 export default function LoginModal(){
     const open =useSelector(state => state.showModal)
@@ -19,6 +21,7 @@ export default function LoginModal(){
     const isDarkTheme = useSelector(state=>state.isDarkTheme)
     
     const handleClose = () => {
+      click.play()
         dispatch(showFinalModal(false));
         dispatch(setGameProgress('settings'))
         
