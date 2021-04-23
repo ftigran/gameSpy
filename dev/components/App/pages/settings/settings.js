@@ -90,6 +90,7 @@ const settings = () => {
         <Typography component="legend" >Количество шпионов: {spys}</Typography>
         <Rating 
         name="spys" 
+        className="spys"
         value={spys} 
         icon="🕴️" 
         max={Math.floor(humans/2)}
