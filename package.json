@@ -7,7 +7,8 @@
     "start": "webpack-dev-server --env development",
     "dev": "webpack --env development",
     "build": "webpack --env production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,7 @@
     "css-loader": "^4.2.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^6.2.0",
+    "gh-pages": "^3.2.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.10.0",
     "node-sass": "^4.14.1",

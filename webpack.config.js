@@ -16,8 +16,8 @@ const autoprefixer = require('autoprefixer')
 const webpack = require('webpack')
 
 const PATHS = {
-    source: path.join(__dirname, 'dev'),
-    build: path.join(__dirname, 'dist')
+    source: path.join(__dirname, 'src'),
+    build: path.join(__dirname, 'build')
 }
 
 const common = merge([{
