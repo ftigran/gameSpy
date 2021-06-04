@@ -10,11 +10,11 @@ $transition-duration: 1.3s;
   background-color: #fff;
   z-index: 10000;
   font-size: 120px;
-animation: scale $transition-duration linear infinite;
-transition: opacity 0.3s;
-&.anim_fade_out{
-  opacity:0
-}
+  animation: scale $transition-duration linear infinite;
+  transition: opacity 0.3s;
+  &.anim_fade_out {
+    opacity: 0;
+  }
 }
 
 @keyframes scale {
@@ -25,5 +25,4 @@ transition: opacity 0.3s;
   }
   100% {
   }
-
 }

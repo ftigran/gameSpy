@@ -1,17 +1,17 @@
-import React, { Component }  from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App/App";
 
 //import Log from "./components/Modal/LoginModal/LoginModal";
 
 //import list from "./components/Header/List/List";
-import './index.scss';
-
+import "./index.scss";
 
 ReactDOM.render(
-    <App/>
+  <App />,
 
-, document.getElementById("root"));
+  document.getElementById("root")
+);
 
 //import Main from './components/pages/main/main' //++
 
@@ -20,6 +20,3 @@ ReactDOM.render(
 // import Priz from './components/Priz/Priz' //++
 // import Random sfrom './components/Random/Random' //++
 // import Winners from './components/Winners/Winners' //++
-
-
- 

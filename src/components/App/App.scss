@@ -1,28 +1,27 @@
-
-button.MuiButtonBase-root{
-    background: linear-gradient(135deg,#44bce0 33%,#ed45f0 66%,#eb971a 100%);
-    color: #FFFFFF;
-    font-weight: 900;
-    border-radius: 20px;
-    padding: 0.5rem 2rem
+button.MuiButtonBase-root {
+  background: linear-gradient(135deg, #44bce0 33%, #ed45f0 66%, #eb971a 100%);
+  color: #ffffff;
+  font-weight: 900;
+  border-radius: 20px;
+  padding: 0.5rem 2rem;
 }
-fieldset{
-    padding: 0;
-    margin: 0;
+fieldset {
+  padding: 0;
+  margin: 0;
 }
-.appContainer{
-    height: 100%;
-    transition: all 1s;
-      user-select: none;
+.appContainer {
+  height: 100%;
+  transition: all 1s;
+  user-select: none;
 
-    .appWpap{
-        max-width: 320px;
+  .appWpap {
+    max-width: 320px;
+  }
+  &.dark {
+    background-color: #0d1117;
+    color: #ffffff;
+    .card-container .front {
+      background: #222c35;
     }
-    &.dark{
-        background-color: #0d1117;
-        color:#FFFFFF;
-        .card-container .front{
-            background: #222c35;
-        }
-    }
+  }
 }
