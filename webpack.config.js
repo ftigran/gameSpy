@@ -14,6 +14,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 const webpack = require('webpack')
+const prettier = require('./webpack/prettier')
+const clean = require('./webpack/clean')
 
 const PATHS = {
     source: path.join(__dirname, 'src'),
@@ -68,8 +70,11 @@ const common = merge([{
 
 module.exports = function (env) {
     if (env === 'production') {
-        return common
-    }
+        return merge([
+            common,
+            prettier(),
+            clean()])
+        }
     if (env === 'development') {
         return merge([
             common,
