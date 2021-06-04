@@ -1,21 +1,13 @@
-import React, { createContext, useState, useContext } from 'react'
+import React, { Suspense} from 'react'
 
-// import Main from '../pages/main/main'
-// import Header from './Header/Header'
-// import Footer from './Footer/Footer'
-// import Registration from '../pages/Registration/Registration'
-// import Cabinet from '../pages/Cabinet/Cabinet'
 import {Grid} from "@material-ui/core"
 import './App.scss'
-//import ScrollSection from './scroll-section/scroll-section'
 
-//import FAQ from '../pages/faq/faq'
-import Settings from './pages/settings/settings'
-import Cards from './pages/cards/cards'
-import Timer from './pages/timer/timer'
+const Settings = React.lazy(() => import("./pages/settings/settings"));
+const Cards = React.lazy(() => import("./pages/cards/cards"));
+const Timer = React.lazy(() => import("./pages/timer/timer"));
 
 
-const DataContext = createContext()
 import {store} from '../../store/store';
 import {Provider, useSelector} from 'react-redux';
 
@@ -35,13 +27,18 @@ const PageWrapper=()=>{
     return(
 <Grid container className={isDarkTheme?"appContainer dark":"appContainer"} direction='column' justify="center" alignItems="center">
             <Grid item className="appWpap">
-                    <GetGameProgress/>
+      <Suspense fallback={<div >Загрузка...</div>}>
+      <GetGameProgress/>
+
+      </Suspense>
+
             </Grid>
             </Grid>
     )
 }
 const GetGameProgress=()=>{
     const gameProgress = useSelector(state=>state.gameProgress)
+    
     switch(gameProgress){
         case "settings":
             return <Settings/>
