@@ -71,13 +71,13 @@ function LoginModal() {
   var handleClose = function handleClose() {
     Modal_click.play();
     dispatch(Object(actions["p" /* showFinalModal */])(false));
-    dispatch(Object(actions["i" /* setGameProgress */])('settings'));
+    dispatch(Object(actions["i" /* setGameProgress */])("settings"));
   };
 
   return /*#__PURE__*/react_default.a.createElement(Modal["a" /* default */], {
     "aria-labelledby": "transition-modal-title",
     "aria-describedby": "transition-modal-description",
-    className: 'modal',
+    className: "modal",
     open: open,
     closeAfterTransition: true,
     BackdropComponent: Backdrop["a" /* default */],

@@ -351,14 +351,14 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return setLocation; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return showFinalModal; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return setGameProgress; });
-var SET_HUMANS = 'SET_HUMANS';
-var SET_SPYS = 'SET_SPYS';
-var SET_SPY_ARRAY = 'SET_SPY_ARRAY';
-var SET_LOCATION = 'SET_LOCATION';
-var SET_TIMER = 'SET_TIMER';
-var SHOW_FINAL_MODAL = 'SHOW_FINAL_MODAL';
-var SET_GAME_PROGRESS = 'SET_GAME_PROGRESS';
-var SET_THEME = 'SET_THEME';
+var SET_HUMANS = "SET_HUMANS";
+var SET_SPYS = "SET_SPYS";
+var SET_SPY_ARRAY = "SET_SPY_ARRAY";
+var SET_LOCATION = "SET_LOCATION";
+var SET_TIMER = "SET_TIMER";
+var SHOW_FINAL_MODAL = "SHOW_FINAL_MODAL";
+var SET_GAME_PROGRESS = "SET_GAME_PROGRESS";
+var SET_THEME = "SET_THEME";
 var setTheme = function setTheme(bool) {
   return {
     type: SET_THEME,
@@ -5304,11 +5304,11 @@ var reducers_rootRedducer = function rootRedducer() {
 
 
 var user = {
-  firstName: 'Владимир',
+  firstName: "Владимир",
   cheki: 50,
   prizi: 4,
-  phone: '+7 888 555 6666',
-  email: 'sqs@sa.ssa'
+  phone: "+7 888 555 6666",
+  email: "sqs@sa.ssa"
 };
 var store = Object(redux["b" /* createStore */])(reducers_rootRedducer);
 // EXTERNAL MODULE: ./node_modules/react-redux/es/index.js + 22 modules
